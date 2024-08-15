@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nickname: MyText
+  account_id: MyText
+  memo: MyText
+  sum: 1
+  town: MyText
+  birthday: 2024-02-23
+  icon1: MyString
+  icon2: MyString
+  activation: false
+
+two:
+  nickname: MyText
+  account_id: MyText
+  memo: MyText
+  sum: 1
+  town: MyText
+  birthday: 2024-02-23
+  icon1: MyString
+  icon2: MyString
+  activation: false
