@@ -1,0 +1,59 @@
+<h1 class="display-4 text-primary">User Index</h1>
+
+<table class="table table-bordered table-dark">
+
+  <tr><td><a href="javascript:delDataAll()">Delete_All</a></tr>
+  
+  <th width="440">投稿日時</th><th width="500">account_ID(ニフクラID)</th><th width="520">ニックネーム</th><th width="460">メールアドレス</th>
+  <th width="1200">自己紹介</th><th width="800">現在地</th><th width="500">誕生日</th><th width="200">総数</th>
+  <th>メインアイコン</th><th>背景</th>
+  <th>鍵アカウント</th><th>凍結</th>
+  </tr>
+  <% @users.each do |obj| %>
+  <tr>
+
+    <td><%= obj.created_at %></td>
+
+    <td><%= obj.account_id %></td>
+
+    <td><%= obj.account_name %></td>
+
+    <td><%= obj.account_mail %></td>
+
+    <td><%= obj.introduction %></td>
+  
+    <td><%= obj.town %></td>
+
+    <td><%= obj.birthday %></td>
+
+    <td><%= obj.sum %></td>
+
+    <td><%= obj.icon1 %></td>
+  
+    <td><%= obj.icon2 %></td>
+
+
+    <td><%= obj.activation %></td>
+
+    <td width="250"><a href="/configs/show_index/<%= obj.id %>">Show</a></td>
+    <td width="300"><a href="javascript:delData(<%= obj.id%>);">Delete</a></td>
+
+  
+  <% end %>
+</table>
+
+<script>
+function delData(num){
+  if (confirm('このデータを削除しますか？')){
+    document.location = "/configs/delete/" + num;
+  }
+  return false;
+}
+
+function delDataAll(){
+  if (confirm('全てのデータを削除しますか？ 　※この操作は元に戻せません。')){
+    document.location = "/configs/delete_all/" ;
+  }
+  return false;
+}
+</script>

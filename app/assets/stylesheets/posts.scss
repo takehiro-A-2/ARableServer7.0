@@ -1,0 +1,50 @@
+/* ページ全体のスタイル */
+body {
+    color:#333333;
+    background-color: #f2f0dc;
+    
+}
+
+section h1 {
+    margin:20px;
+    font-size:50px;
+    padding: 5px;
+    text-align: center;
+    font-family: "Arial";
+    color:#000000;
+    
+}
+
+
+.main_table{
+    
+    text-align: center;
+}
+
+th{
+    padding:4px 4px;
+    font-family: "游ゴシック", "Noto Sans JP", sans-serif;
+   
+    background-color:#b6c7fe;
+    border:solid 1px #000000;
+    font-size:20px;
+
+}
+
+td {
+    padding: 0.5px 0.5px;
+    border:solid 1px #000000;
+    font-size:18px;
+    
+}
+tr:nth-of-type(even), tr:nth-of-type(even) td  {
+    
+    background-color:#d3d2d2;
+    color:#000000;
+}
+tr:nth-of-type(odd) , tr:nth-of-type(odd) td  {
+    background-color:#95949c;
+    color:#000000;
+}
+
+

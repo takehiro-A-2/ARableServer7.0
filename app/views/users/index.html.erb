@@ -1,0 +1,60 @@
+<h1 class="display-4 text-primary">User Home</h1>
+
+<table class="table table-bordered table-dark">
+
+  <tr><td><a href="javascript:delDataAll()">Delete_All</a></tr>
+  
+  <th width="500">投稿日時</th><th width="480">Account_ID</th><th width="460">ニックネーム</th><th width="600">自己紹介</th><th width="300">誕生日</th>
+  <th width="500">現在地</th><th width="100">メインアイコン</th><th width="100">バックアイコン</th>
+  <th width="100">総数</th><th width="50">鍵</th>
+  </tr>
+
+  <% @users.each do |obj| %>
+  <tr>
+    
+    <td><%= obj.created_at %></td>
+
+    <td><%= obj.account_id %></td>
+
+    <td><%= obj.account_name %></td>
+
+    <td width=”10000” height=”5”><%= obj.memo %></td>
+
+    <td><%= obj.birthday %></td>
+
+    <td><%= obj.town %></td>
+  
+    <td><%= obj.icon1 %></td>
+
+    <td><%= obj.icon2 %></td>
+
+    <td><%= obj.sum %></td>
+  
+    <td><%= obj.activation %></td>
+
+    <td width="200"><a href="/users/show/<%= obj.id %>">Show</a></td>
+    <td width="250"><a href="javascript:delData(<%= obj.id %>);">Delete</a></td>
+
+  <% end %>
+
+</table>
+
+<script>
+function delData(num){
+  if (confirm('このデータを削除しますか？')){
+    document.location = "/users/delete/" + num;
+  }
+  return false;
+}
+
+function delDataAll(){
+  if (confirm('全てのデータを削除しますか？ 　※この操作は元に戻せません。')){
+    document.location = "/users/delete_all/" ;
+  }
+  return false;
+}
+</script>
+
+
+
+

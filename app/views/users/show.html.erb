@@ -1,0 +1,45 @@
+<h1 class="display-4 text-primary">
+  "<%=@user.account_name %>"</h1>
+<table class="table">
+  <tr>
+    <td><%= @user.sum %>個のプレースしたオブジェクト</td>
+  </tr>
+    <th>Nickname</th>
+    <td><%= @user.account_name %></td>
+  </tr>
+  <tr>
+    <th>Id</th>
+    <td><%= @user.account_id %></td>
+  </tr>
+  <tr>
+    <th>Created at</th>
+    <td><%= @user.created_at %></td>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <td><%= @user.memo %></td>
+  </tr>
+  <tr>
+    <th>誕生日</th>
+    <td><%= @user.birthday %></td>
+  </tr>
+  <tr>
+    <th>現在地</th>
+    <td><%= @user.town %></td>
+  </tr>
+  <tr>
+    <th>メインアイコン</th>
+    <td><%= image_tag(@user.icon1.to_s,:size => '100x100') %></td>
+  </tr>
+  <tr>
+    <th>バックアイコン</th>
+    <td><%= image_tag(@user.icon2.to_s,:size => '240x160') %></td>
+  </tr>
+  <tr>
+    <th>鍵されているならtrue</th>
+    <td><%= @user.activation %></td>
+  </tr>
+
+</table>
+<td><a href="/users/index">設定へ</a></td>
+

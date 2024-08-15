@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>【投稿管理】ARable</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="この画面で投稿物を管理します。">
+    
+    <link rel="stylesheet" href="app/assets/stylesheets/posts.scss">
+  
+  
+</head>
+
+
+
+<body>
+
+<section>    
+<h1>投稿管理</h1>
+<p><%= @msg %></p>
+<p><a href="javascript:delDataAll()">Delete_All</a></p>
+</section>
+
+
+
+<table class="main_table">
+
+  <!--
+  <th width="500">投稿日時</th><th width="480">Account_ID</th><th width="460">Object_ID</th><th width="100">タイトル</th><th width="300">画像または動画</th>
+  <th width="100">拡張子</th><th width="350">size</th><th width="120">volume</th>
+  <th width="450">x</th><th width="450">y</th><th width="450">z</th><th width="700">text</th><th width="150">鍵</th>
+-->
+
+<!--th>ディレクトリ（プラグインとなる）</th><th>拡張子</th><th>volume</th>-->
+<th>画像または動画</th><th>text</th><th>size(MB)</th>
+<th width="100">投稿日時</th><th>Account_ID</th><th>Object_ID</th>
+<th>地域</th><th>x</th><th>y</th><th>z</th>
+
+
+  <% @posts.each do |obj| %>
+  <tr>
+    <!--<td width=”10000” height=”5”><%= obj.filename %></td>-->
+
+    <!--<td><%= obj.extension %></td>-->
+
+    <!--<td><%= obj.size %></td>-->
+
+    <td><%= image_tag(obj.image.to_s,:size => '90x60',autoplay:false) %></td>
+
+    <td><%= obj.text %></td>
+  
+    <td><%= (obj.size.to_f/1000000).floor(2) %></td>
+
+    <td><%= obj.created_at.to_s.sub(' +0900', '') %></td>
+
+    <td><%= obj.account_id %></td>
+
+    <td><%= obj.object_id %></td>
+
+    <td><%= obj.activation %></td>
+
+    <td><%= obj.x %></td>
+
+    <td><%= obj.y %></td>
+  
+    <td><%= obj.z %></td>
+
+
+    <td width="50"><a href="/posts/show/<%= obj.id %>">詳細</a></td>
+    <td width="50"><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
+
+    </tr>
+  <% end %>
+</table>
+
+
+
+
+</body>
+
+<script>
+function delData(num){
+  if (confirm('このデータを削除しますか？')){
+    document.location = "/posts/delete_index/" + num;
+  }
+  return false;
+}
+
+function delDataAll(){
+  if (confirm('全てのデータを削除しますか？ 　※この操作は元に戻せません。')){
+    document.location = "/posts/delete_all/" ;
+  }
+  return false;
+}
+</script>

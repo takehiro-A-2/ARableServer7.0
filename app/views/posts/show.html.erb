@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Video:</strong>
+  <%= link_to @post.image_url.to_s do %>
+   <!-<%= image_tag(@post.image.to_s) %>->
+   <!–<%= image_tag(@post.image.to_s,:size => '600x400') %>–>
+      <%= video_tag(@post.image.to_s) %>
+   
+  <% end %>
+  <td><%= @msg %></td>
+</p>
+
+<td><a href="javascript:delData(<%= @post.id %>);">Delete</a></td>
+<%= link_to 'Back', posts_path %>
+
+<script>
+function delData(num){
+  if (confirm('このデータを削除しますか？')){
+    document.location = "/posts/delete/" + num;
+  }
+  return false;
+}
+</script>
